@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rust WASM Counter</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 100px;
+        transition: background-color 0.3s;
+      }
+      button {
+        font-size: 24px;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="count">Kliky: 0</h1>
+    <button id="btn">Klikni mě!</button>
+
+    <script type="module">
+      import init, { Counter } from './pkg/wasm_counter.js'
+
+      async function run() {
+        await init()
+        const counter = new Counter() // instance Rust struct
+        const countEl = document.getElementById('count')
+        const btn = document.getElementById('btn')
+
+        btn.addEventListener('click', () => {
+          counter.increment() // teď skutečně mění hodnotu
+          countEl.textContent = `Kliky: ${counter.get()}`
+
+          document.body.style.backgroundColor = `hsl(${
+            Math.random() * 360
+          }, 70%, 80%)`
+        })
+      }
+
+      run()
+    </script>
+  </body>
+</html>

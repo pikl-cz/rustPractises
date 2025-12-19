@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <title>Killer GUI Web</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #111;
+        color: #ddd;
+        font-family: system-ui, sans-serif;
+      }
+      #container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        padding: 12px;
+      }
+      canvas {
+        outline: 1px solid #333;
+        background: #000;
+      }
+      .info {
+        font-size: 12px;
+        opacity: 0.7;
+      }
+    </style>
+  <link rel="modulepreload" href="/killer_gui-e5cea4d57704b7f9.js" crossorigin="anonymous" integrity="sha384-rPVGLQ6tI+3fkJokoM9g/CEvoLnZc7kg8SpicBOBTfOX/ZArg3cFKF8qf7mqWypO"><link rel="preload" href="/killer_gui-e5cea4d57704b7f9_bg.wasm" crossorigin="anonymous" integrity="sha384-cMr60Cd4bNwI6d5GIDaybvxHt7kslF2VbGc6/kfstahS41hMxFHFTcQ4WIDQPNR3" as="fetch" type="application/wasm"></head>
+  <body>
+    <div id="container">
+      <h1>Killer GUI (Web)</h1>
+      <canvas id="the_canvas_id"></canvas>
+      <div class="info">Šipky/WASD: pohyb | ESC: konec</div>
+    </div>
+  
+<script type="module">
+import init, * as bindings from '/killer_gui-e5cea4d57704b7f9.js';
+const wasm = await init({ module_or_path: '/killer_gui-e5cea4d57704b7f9_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
