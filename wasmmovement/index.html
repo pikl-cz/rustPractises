@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <canvas id="c" width="500" height="400"></canvas>
+
+    <script type="module">
+      import init, { Body } from './pkg/wasmmovement.js'
+
+      await init()
+
+      const ctx = document.getElementById('c').getContext('2d')
+      const body = new Body(250, 50)
+
+      let last = performance.now()
+
+      function loop(t) {
+        const dt = (t - last) / 1000
+        last = t
+
+        body.step(dt)
+
+        ctx.clearRect(0, 0, 500, 400)
+        ctx.beginPath()
+        ctx.arc(body.x, body.y, 10, 0, Math.PI * 2)
+        ctx.fill()
+
+        requestAnimationFrame(loop)
+      }
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') body.vx -= 50
+        if (e.key === 'ArrowRight') body.vx += 50
+      })
+
+      requestAnimationFrame(loop)
+    </script>
+  </body>
+</html>
