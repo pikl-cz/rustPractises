@@ -1,11 +1,12 @@
 
 // 1. Součet prvních n přirozených čísel.
 
-use std::{io};
+use std::{io, io::Write};
 
 pub fn run() {
 
-    println!("Napiš číslo, u kterého se má spočítat faktoriál:");
+    print!("Napiš číslo, u kterého se má spočítat faktoriál: ");
+    io::stdout().flush().unwrap();
 
     let mut input = String::new();
 
@@ -15,13 +16,13 @@ pub fn run() {
 
     let number: i32 = input.trim().parse().expect("Zadejte platné číslo!");
 
-    println!("\n");
+    // println!("\n");
 
     // let result: i32 = faktorial_via_while(number);
     let result: i32 = faktorial_via_for(number);
 
 
-    println!("\n Faktoriál čísla je: {result}");
+    println!("Faktoriál čísla je: {result}");
 }
 
 fn faktorial_via_for(n: i32) -> i32 {
