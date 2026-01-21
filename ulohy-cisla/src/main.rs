@@ -4,7 +4,8 @@
 // mod faktorial_cisla;
 // mod ciferny_soucet;
 // mod pocet_jednicek;
-mod cislo_pozpatku;
+// mod cislo_pozpatku;
+mod cela_cast_odmocniny_z_n;
 
 
 fn main() {
@@ -13,7 +14,8 @@ fn main() {
 // faktorial_cisla::run();
 // ciferny_soucet::run();
 // pocet_jednicek::run();
-cislo_pozpatku::run();
+// cislo_pozpatku::run();
+cela_cast_odmocniny_z_n::run();
 
 
 
