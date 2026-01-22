@@ -1,0 +1,13 @@
+# Nastavení správného MIME typu pro WASM soubory
+AddType application/wasm .wasm
+
+# Povolení CORS (pokud by byl problém s načítáním)
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>
+
+# Komprese pro lepší výkon
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/wasm
+</IfModule>
