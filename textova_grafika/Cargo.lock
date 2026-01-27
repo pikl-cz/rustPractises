@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "track"
+name = "textova_grafika"
 version = "0.1.0"

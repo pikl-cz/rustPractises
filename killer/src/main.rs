@@ -15,7 +15,7 @@ fn main() {
 
     // Nejprve klasický vstup (mimo raw mód)
     let name = read_line("Zadej tve jmeno: ");
-    let mut speed: u32 = loop {
+    let speed: u32 = loop {
         let s = read_line("Zadej rychlost (1 - 5): ");
         match s.trim().parse::<u32>() {
             Ok(v) if (1..=5).contains(&v) => break v,
