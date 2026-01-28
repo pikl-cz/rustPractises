@@ -1,9 +1,9 @@
-pub fn run () {
+pub fn run (size_x: i32) {
     println!("Čtverec");
 
-    let x = 10;
+    let x: i32 = size_x;
 
-    for a in 0..x {
+    for _a in 0..x {
         for i in 0..x {
             print!("x");
 
