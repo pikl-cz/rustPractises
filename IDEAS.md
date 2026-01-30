@@ -12,3 +12,5 @@
 - CSS Variable Extractor: Prohledá tvé CSS soubory a vypíše seznam všech použitých proměnných a jejich hodnot. + najde chybějící proměnné.
 - Bundle Size Watcher: Nástroj, který porovná velikost vybuildovaného JS souboru s jeho předchozí verzí a varuje tě, pokud narostl o více než $X$ %.
 - Snippet Manager: Terminálová databáze tvých nejpoužívanějších kousků kódu, které si můžeš rychle zkopírovat do schránky.
+
+- AB test manager pro CNC

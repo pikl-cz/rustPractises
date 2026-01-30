@@ -3,6 +3,7 @@ use std::io;
 mod ctverec;
 mod trojuhelnik;
 mod kosoctverec;
+mod sachovnice1;
 
 fn main() {
     let menu: Vec<(&str, &str)> = vec![
@@ -39,16 +40,21 @@ fn main() {
 
     menu_input = menu_input.trim().to_string();
 
+    println!("");
+
     let idx = menu_input.parse::<usize>().unwrap_or(0);
     if idx > 0 && idx <= menu.len() {
         match menu[idx - 1].1 {
             "ctverec" => ctverec::run(size_x),
             "trojuhelnik" => trojuhelnik::run(size_x),
             "kosoctverec" => kosoctverec::run(size_x),
+            "sachovnice1" => sachovnice1::run(size_x),
             // zde můžeš přidat další match větve pro další klíče
             _ => println!("\nTato funkce není implementována."),
         }
     } else {
         println!("\nKonec.");
     }
+
+    println!("");
 }

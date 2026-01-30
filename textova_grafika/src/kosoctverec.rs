@@ -29,10 +29,6 @@ pub fn run (size_x: i32) {
     let mut iterator_down = size - 2;
     while iterator_down >= 0 {
         if iterator_down % 2 != 0 {
-            // let spaces_down: i32 = iterator_down / 2;
-            // for _s in 0..spaces_down {
-            //     print!(" ");
-            // }
 
             let mut spaces_down = size - iterator_down;
             spaces_down = spaces_down / 2;
