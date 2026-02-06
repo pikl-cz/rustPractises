@@ -1,0 +1,1 @@
+// Otevřít soubor - pokud neexistuje, vytvořit nový

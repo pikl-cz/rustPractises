@@ -3,6 +3,7 @@ TiTr | Time Tracker
 - titr je napsaný v Rust a je dostupný jako binárka pro Linux, MacOS i Windows
 - umí trackovat čas strávený na různých úkolech / vytvářet minutku v CLI (napříč různámi terminály)
 - pokud se spustí jak minutka nebo tracking úkolu objeví v systémové liště (tray) ikona s časem
+- pokud dojde minutka k nule, zobrazí se upozornění (notifikace asi jako okno) a ikona v tray začne blikat
 - data jsou ukládána lokálně v JSON formátu (žádné cloudové služby)
 - příkazy programu:
 

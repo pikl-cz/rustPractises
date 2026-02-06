@@ -11,7 +11,13 @@ mod task_minute;
 mod gui_headline;
 
 #[derive(Parser)]
-#[command(name = "track", version, about = "Time tracker CLI", author)]
+#[command(
+    name = "track",
+    version,
+    about = "Simple CLI time tracker",
+    author,
+    help_template = "{about}\n\n{usage-heading} {usage}\n\n{all-args}\n"
+)]
 struct Cli {
     #[command(subcommand)]
     command: Option<Commands>,
@@ -19,37 +25,37 @@ struct Cli {
 
 #[derive(Subcommand)]
 enum Commands {
-    /// Vygeneruje report
+    /// Generates a report
     #[command(alias = "r")]
     Report,
-    /// Spustí úkol
+    /// Starts a task
     #[command(alias = "s")]
     Start {
         #[arg(short, long)]
         task: String,
     },
-    /// Pozastaví úkol
+    /// Pauses a task
     #[command(alias = "p")]
     Pause {
         #[arg(short, long)]
         task: String,
     },
-    /// Ukončí úkol
+    /// Stops a task
     #[command(alias = "st")]
     Stop {
         #[arg(short, long)]
         task: String,
     },
-    /// Spustí minutku
+    /// Starts a timer
     #[command(alias = "m")]
     Min {
         #[arg(short, long, default_value_t = 1)]
         minutes: u32,
     },
-    /// Zobrazí report za dnešní den
+    /// Shows today's report
     #[command(alias = "d")]
     Today,
-    /// Smaže všechna data
+    /// Clears all data
     Clear,
 }
 
